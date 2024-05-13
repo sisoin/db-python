@@ -97,7 +97,20 @@ try:
         existing_car = mycursor.fetchone()
         if existing_car:
             continue
+     
+        #-----차량 가격을 가져오는 코드 작업 진행중--------------------
 
+        action_link = li.find_element(By.CSS_SELECTOR, ".right .row .action a").get_attribute("href")
+        driver.get(action_link)
+        choices = driver.find_elements(By.CSS_SELECTOR, ".estimate_cont eTrimBox .article-box_cont .choice")
+        
+        last_choice = choices[-1]
+        last_choice.click()
+        driver.back()
+        time.sleep(1)
+        
+        #---------------------------------
+        
         # 차량 스펙 데이터를 추출
         spec_data = []
         contains_certification = False

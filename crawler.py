@@ -34,7 +34,7 @@ def extract_numbers(text):
 mydb = mysql.connector.connect(
   host="localhost",
   user="root",
-  password="qweasd1!",
+  password="password",
 )
 
 # 데이터베이스 커서 생성
